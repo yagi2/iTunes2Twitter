@@ -27,10 +27,12 @@ namespace iTunes2TwitterProgram
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new MainForm());
-
             // 起動時に今流れてる音楽を取得しておく
+            // iTunes2Twitter.MainForm_Load()で同じことを記述していたので一応コメントアウト
+            /*
             string MusicText = "";
             MusicText = GetCurrentMusic();
+            */
         }
 
         // 現在流れている音楽情報の取得

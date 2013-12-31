@@ -34,9 +34,11 @@
             // 
             // TweetTextBox
             // 
+            this.TweetTextBox.BackColor = System.Drawing.SystemColors.Window;
             this.TweetTextBox.Location = new System.Drawing.Point(55, 52);
             this.TweetTextBox.Multiline = true;
             this.TweetTextBox.Name = "TweetTextBox";
+            this.TweetTextBox.ReadOnly = true;
             this.TweetTextBox.Size = new System.Drawing.Size(506, 97);
             this.TweetTextBox.TabIndex = 0;
             // 
