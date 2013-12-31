@@ -109,5 +109,55 @@ namespace iTunes2Twitter
             }
         }
 
+        private void StartStopButton_Click(object sender, EventArgs e)
+        {
+            iTunesApp itunes = new iTunesLib.iTunesApp();
+            IITTrack track = itunes.CurrentTrack;
+
+            itunes.PlayPause();
+
+            string str = "";
+            str = GetCurrentMusic();
+
+            changeText(TweetTextBox, new changeTextBoxDlegate(changeTextBox), str);
+
+            Marshal.ReleaseComObject(itunes);
+        }
+
+        private void NextSongButton_Click(object sender, EventArgs e)
+        {
+            iTunesApp itunes = new iTunesLib.iTunesApp();
+            IITTrack track = itunes.CurrentTrack;
+
+            itunes.NextTrack();
+
+            string str = "";
+            str = GetCurrentMusic();
+
+            changeText(TweetTextBox, new changeTextBoxDlegate(changeTextBox), str);
+
+            Marshal.ReleaseComObject(itunes);
+        }
+
+        private void PreviousSongButton_Click(object sender, EventArgs e)
+        {
+            iTunesApp itunes = new iTunesLib.iTunesApp();
+            IITTrack track = itunes.CurrentTrack;
+
+            itunes.BackTrack();
+
+            string str = "";
+            str = GetCurrentMusic();
+
+            changeText(TweetTextBox, new changeTextBoxDlegate(changeTextBox), str);
+
+            Marshal.ReleaseComObject(itunes);
+        }
+
+        private void TweetButton_Click(object sender, EventArgs e)
+        {
+
+        }
+
     }
 }

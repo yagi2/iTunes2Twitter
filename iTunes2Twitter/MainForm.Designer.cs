@@ -64,6 +64,7 @@
             this.StartStopButton.TabIndex = 2;
             this.StartStopButton.Text = "再生/停止";
             this.StartStopButton.UseVisualStyleBackColor = true;
+            this.StartStopButton.Click += new System.EventHandler(this.StartStopButton_Click);
             // 
             // PreviousSongButton
             // 
@@ -73,6 +74,7 @@
             this.PreviousSongButton.TabIndex = 3;
             this.PreviousSongButton.Text = "前の曲へ";
             this.PreviousSongButton.UseVisualStyleBackColor = true;
+            this.PreviousSongButton.Click += new System.EventHandler(this.PreviousSongButton_Click);
             // 
             // NextSongButton
             // 
@@ -82,6 +84,7 @@
             this.NextSongButton.TabIndex = 4;
             this.NextSongButton.Text = "次の曲へ";
             this.NextSongButton.UseVisualStyleBackColor = true;
+            this.NextSongButton.Click += new System.EventHandler(this.NextSongButton_Click);
             // 
             // TweetButton
             // 
@@ -91,6 +94,7 @@
             this.TweetButton.TabIndex = 5;
             this.TweetButton.Text = "ツイートする";
             this.TweetButton.UseVisualStyleBackColor = true;
+            this.TweetButton.Click += new System.EventHandler(this.TweetButton_Click);
             // 
             // MainForm
             // 
