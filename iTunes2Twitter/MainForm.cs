@@ -109,6 +109,7 @@ namespace iTunes2Twitter
             }
         }
 
+        // 再生/停止ボタンクリックイベント
         private void StartStopButton_Click(object sender, EventArgs e)
         {
             iTunesApp itunes = new iTunesLib.iTunesApp();
@@ -124,6 +125,7 @@ namespace iTunes2Twitter
             Marshal.ReleaseComObject(itunes);
         }
 
+        // 次の曲へボタンクリックイベント
         private void NextSongButton_Click(object sender, EventArgs e)
         {
             iTunesApp itunes = new iTunesLib.iTunesApp();
@@ -139,6 +141,7 @@ namespace iTunes2Twitter
             Marshal.ReleaseComObject(itunes);
         }
 
+        // 前の曲へボタンクリックイベント
         private void PreviousSongButton_Click(object sender, EventArgs e)
         {
             iTunesApp itunes = new iTunesLib.iTunesApp();
@@ -154,9 +157,10 @@ namespace iTunes2Twitter
             Marshal.ReleaseComObject(itunes);
         }
 
+        // ツイートするボタンクリックイベント
         private void TweetButton_Click(object sender, EventArgs e)
         {
-
+            MessageBox.Show("ついーときのうはまだ未実装なの！");
         }
 
     }
