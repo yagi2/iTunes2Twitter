@@ -34,7 +34,7 @@ namespace iTunes2Twitter
             iTunesApp = new iTunesAppClass();
             iTunesApp.OnPlayerPlayEvent += new _IiTunesEvents_OnPlayerPlayEventEventHandler(iTunesApp_OnPlayerPlayEvent);
 
-            string str = Program.GetCurrentMusic();
+            string str = GetCurrentMusic();
 
             changeText(TweetTextBox, new changeTextBoxDlegate(changeTextBox), str);
         }
@@ -64,9 +64,50 @@ namespace iTunes2Twitter
         {
             string str = "";
 
-            str = Program.GetCurrentMusic();
+            str = GetCurrentMusic();
 
             changeText(TweetTextBox, new changeTextBoxDlegate(changeTextBox), str);
         }
+
+        // 楽曲情報の取得
+        public string GetCurrentMusic()
+        {
+            string MusicText = "";
+
+            iTunesApp iTA = new iTunesLib.iTunesApp();
+            IITTrack track = iTA.CurrentTrack;
+
+            if (track != null && track.Enabled)
+            {
+                MusicText = string.Format("[きいてるなう！] - {0} - {1} by {2} #nowplaying", track.Name, track.Album, track.Artist);
+            }
+
+            Marshal.ReleaseComObject(iTA);
+
+            SetArtWork(track);
+
+            return MusicText;
+        }
+
+        // アートワークの取得
+        public void SetArtWork(IITTrack track)
+        {
+            var awc = from IITArtwork aw in track.Artwork
+                      select aw;
+
+            foreach (var aw in awc)
+            {
+                var tmpFileName = @"c:\iTunesPhoto\tmp.jpg";
+                aw.SaveArtworkToFile(tmpFileName);
+                using (var fs = new FileStream(tmpFileName, FileMode.Open, FileAccess.Read))
+                {
+                    this.ArtWorkPictureBox.SizeMode = PictureBoxSizeMode.StretchImage;
+                    this.ArtWorkPictureBox.Image = Image.FromStream(fs);
+                    fs.Close();
+                }
+                break;
+            }
+        }
+
     }
 }
